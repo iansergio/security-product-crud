@@ -1,6 +1,6 @@
 package com.security.domain.product;
 
-import com.security.dto.ProductRequestDTO;
+import com.security.dto.ProductRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public class Product {
     private Double price;
     private int quantity;
 
-    public Product(ProductRequestDTO data) {
+    public Product(ProductRequest data) {
         this.price = data.price();
         this.name = data.name();
     }

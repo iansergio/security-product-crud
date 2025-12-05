@@ -1,8 +1,7 @@
 package com.security.controller;
 
-import com.security.domain.product.Product;
-import com.security.dto.ProductRequestDTO;
-import com.security.dto.ProductResponseDTO;
+import com.security.dto.ProductRequest;
+import com.security.dto.ProductResponse;
 import com.security.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +22,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductResponseDTO> save(@RequestBody @Valid ProductRequestDTO body) {
-        ProductResponseDTO responseDTO = productService.save(body);
+    public ResponseEntity<ProductResponse> save(@RequestBody @Valid ProductRequest body) {
+        ProductResponse responseDTO = productService.save(body);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -36,7 +35,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductResponseDTO>> getAll() {
+    public ResponseEntity<List<ProductResponse>> getAll() {
         return ResponseEntity.ok(productService.getAll());
     }
 }

@@ -3,7 +3,7 @@ package com.security.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record ProductRequestDTO (
+public record ProductRequest(
         @NotBlank
         String name,
 

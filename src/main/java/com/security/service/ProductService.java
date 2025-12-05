@@ -1,8 +1,8 @@
 package com.security.service;
 
 import com.security.domain.product.Product;
-import com.security.dto.ProductRequestDTO;
-import com.security.dto.ProductResponseDTO;
+import com.security.dto.ProductRequest;
+import com.security.dto.ProductResponse;
 import com.security.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +17,16 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public ProductResponseDTO save(ProductRequestDTO body) {
+    public ProductResponse save(ProductRequest body) {
         Product product = productRepository.save(new Product(body));
 
-        return new ProductResponseDTO(product);
+        return new ProductResponse(product);
     }
 
-    public List<ProductResponseDTO> getAll() {
+    public List<ProductResponse> getAll() {
         return productRepository.findAll()
                 .stream()
-                .map(ProductResponseDTO::new)
+                .map(ProductResponse::new)
                 .toList();
     }
 }
